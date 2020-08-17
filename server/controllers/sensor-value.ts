@@ -90,12 +90,9 @@ export default class SensorValueCtrl {
         Object.entries(orionEntity).filter(([k, v]) => v['type'] === 'geo:point')
           .forEach(([k, v ]) => orionEntity[k] = { value: `${v['value'].coordinates[1]},${v['value'].coordinates[0]}`, type: 'geo:point'});
       }
+      orionEntity['TimeInstant'] = {value: timestamp, type: 'ISO8601'};
       catTrans.debug('Adding entity to orionCache: ' + JSON.stringify(orionEntity));
       this.orionCache[service].entities[entity.type + '___' + entity.id] = orionEntity;
-
-      let aaa = JSON.parse(JSON.stringify(orionEntity));
-      aaa['TimeInstant'] = {value: timestamp, type: 'ISO8601'};
-      catTrans.debug('AAAAAAA: ' + JSON.stringify(aaa));
     }
     return strategy.getDocuments();
   };
