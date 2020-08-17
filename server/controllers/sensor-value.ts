@@ -93,7 +93,7 @@ export default class SensorValueCtrl {
       catTrans.debug('Adding entity to orionCache: ' + JSON.stringify(orionEntity));
       this.orionCache[service].entities[entity.type + '___' + entity.id] = orionEntity;
 
-      aaa = JSON.parse(JSON.stringify(orionEntity));
+      let aaa = JSON.parse(JSON.stringify(orionEntity));
       aaa['TimeInstant'] = {value: timestamp, type: 'ISO8601'};
       catTrans.debug('AAAAAAA: ' + JSON.stringify(aaa));
     }
