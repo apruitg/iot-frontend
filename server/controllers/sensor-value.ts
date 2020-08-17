@@ -93,6 +93,7 @@ export default class SensorValueCtrl {
       catTrans.debug('Adding entity to orionCache: ' + JSON.stringify(orionEntity));
       this.orionCache[service].entities[entity.type + '___' + entity.id] = orionEntity;
     }
+    catTrans.debug('AAAAAAAAAAAAAAA: ' + JSON.stringify(strategy.getDocuments()));
     return strategy.getDocuments();
   };
 
@@ -212,4 +213,3 @@ export default class SensorValueCtrl {
     }
   }
 }
-
